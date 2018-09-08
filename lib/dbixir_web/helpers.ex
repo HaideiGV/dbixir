@@ -7,8 +7,8 @@ defmodule Dbixir.Helpers do
         pid_list |> List.first
     end
 
-    def gen_cookie_name(username \\ "username", dbname) do
-        "cookie_#{username}_#{dbname}"
+    def gen_cookie_atom(username, dbname) do
+        "cookie_#{username}_#{dbname}" |> String.to_atom
     end
 
     def get_connection_pid_by_name(connection_pid_name) do

@@ -1,5 +1,11 @@
-<div class="jumbotron">
-  <%= for table_name <- @tables do %>
-    <p><%= table_name %></p>
-  <% end %>
+<div class="panel panel-default">
+  <div class="panel-heading">Existing tables</div>
+  <div class="panel-body">
+    <p>List of existing tables.</p>
+  </div>
+  <ol>
+      <%= for table_name <- @tables do %>
+        <li><%= table_name %></li>
+      <% end %>
+  </ol>
 </div>

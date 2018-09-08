@@ -7,6 +7,10 @@ defmodule DbixirWeb.PageController do
     render conn, "index.html"
   end
 
+  def show_new_connection_page(conn, _params) do
+    render conn, "new_connection.html"
+  end
+
   def add_new_connection(%Plug.Conn{method: method, body_params: body_params, cookies: cookies} = conn, _params) do
     %{
       "username" => username, 
@@ -17,20 +21,24 @@ defmodule DbixirWeb.PageController do
       "password" => password
     } = body_params
 
-    cookie_name = gen_cookie_name(username, db_name)
+    connection_pid_name = cookies |> Map.get("user_connection")
     
-    {:ok, user_conn_pid} = Postgrex.start_link(
-      username: username, password: password, port: port, hostname: host, database: db_name
-    )
-    
-    cookie_atom = cookie_name |> String.to_atom
-    
-    Process.register(user_conn_pid, cookie_atom)
+    pid = get_connection_pid_by_name(connection_pid_name)
 
-    updated_cookies = Map.put(cookies, "user_connection", cookie_name)
-    conn = Map.put(conn, :cookies, updated_cookies)
+    if pid do
+      render conn, "notification.html", message: "Connection already inititalized for (#{db_name}) database."
+    else
+      {:ok, user_conn_pid} = Postgrex.start_link(
+        username: username, password: password, port: port, hostname: host, database: db_name
+      )
+      
+      cookie_atom = gen_cookie_atom(username, db_name)
+      Process.register(user_conn_pid, cookie_atom)
 
-    render conn, "notification.html", message: "Connection was inititalized."
+      conn = put_resp_cookie(conn, "user_connection", Atom.to_string(cookie_atom))
+
+      render conn, "notification.html", message: "Connection was inititalized for (#{db_name}) database."
+    end
   end
 
   def get_table_list(%Plug.Conn{cookies: cookies} = conn, _params) do
@@ -46,6 +54,14 @@ defmodule DbixirWeb.PageController do
     else
       render conn, "notification.html", message: "Connection failed. Try to reconnect."
     end
+  end
+
+  def show_query_area(conn, _params) do
+    render conn, "query_area.html"
+  end
+
+  def query_execute(conn, _params) do
+    render conn, "query_area.html"
   end
 
 end

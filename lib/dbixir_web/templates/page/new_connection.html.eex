@@ -1,0 +1,25 @@
+<div>
+    <form action="/connections/new" method="post">
+        <p>
+            <input class="form-control" type="text" name="db_name" placeholder="database name">
+        </p>
+        <p>
+            <input class="form-control" type="text" name="username" placeholder="username">
+        </p>
+        <p>
+            <input class="form-control" type="password" name="password" placeholder="password">
+        </p>
+        <p>
+            <input class="form-control" type="text" name="port" placeholder="port">
+        </p>
+        <p>
+            <input class="form-control" type="text" name="host" placeholder="host">
+        </p>
+        <p>
+            <input class="form-control" type="text" name="db_adapter" placeholder="db adapter">
+        </p>
+        <p>
+            <input class="btn btn-default" type="submit" value="Submit">
+        </p>
+    </form>
+</div>

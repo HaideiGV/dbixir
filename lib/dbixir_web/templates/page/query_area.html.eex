@@ -1,0 +1,7 @@
+<div class="form-group">
+    <form action="/execute" method="post">
+        <label for="query">Query:</label>
+        <textarea class="form-control" name="query-string" rows="10" id="query"></textarea>
+        <input class="btn btn-success" type="submit" value="Execute">
+    </form>
+</div>

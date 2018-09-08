@@ -20,5 +20,8 @@ defmodule DbixirWeb.Router do
     get "/", PageController, :index
     post "/connections/new", PageController, :add_new_connection
     get "/tables", PageController, :get_table_list
+    get "/new", PageController, :show_new_connection_page
+    get "/query", PageController, :show_query_area
+    post "/execute", PageController, :query_execute
   end
 end
