@@ -1,0 +1,5 @@
+<div class="jumbotron">
+  <%= for table_name <- @tables do %>
+    <p><%= table_name %></p>
+  <% end %>
+</div>

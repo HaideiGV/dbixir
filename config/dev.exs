@@ -32,6 +32,7 @@ config :dbixir, DbixirWeb.Endpoint,
 # Watch static and templates for browser reloading.
 config :dbixir, DbixirWeb.Endpoint,
   live_reload: [
+    interval: 500,
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
