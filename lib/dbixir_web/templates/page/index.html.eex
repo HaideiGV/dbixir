@@ -1,9 +1,9 @@
-<div class="inner cover" style="margin: 0 0 10px;">
-    <h1 class="cover-heading">
+<div class="PageContainer">
+    <p class="AppName">
       Dbixir.
-    </h1>
-    <p class="lead">
+    </p>
+    <span class="HomePageWelcomeText">
       Application which allows you to connect to your db, shows your data, make queries.<br />
       Please enjoy.
-    </p>
+    </span>
 </div>

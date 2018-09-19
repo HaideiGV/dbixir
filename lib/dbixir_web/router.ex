@@ -23,5 +23,6 @@ defmodule DbixirWeb.Router do
     get "/new", PageController, :show_new_connection_page
     get "/query", PageController, :show_query_area
     post "/execute", PageController, :query_execute
+    get "/disconnect", PageController, :disconnect
   end
 end

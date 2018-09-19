@@ -1,4 +1,4 @@
-<div>
+<div class="PageContainer">
     <form action="/connections/new" method="post">
         <p>
             <input class="form-control" type="text" name="db_name" placeholder="database name">
@@ -16,10 +16,7 @@
             <input class="form-control" type="text" name="host" placeholder="host">
         </p>
         <p>
-            <input class="form-control" type="text" name="db_adapter" placeholder="db adapter">
-        </p>
-        <p>
-            <input class="btn btn-default" type="submit" value="Submit">
+            <input class="btn btn-success" type="submit" value="Submit">
         </p>
     </form>
 </div>

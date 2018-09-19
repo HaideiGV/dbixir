@@ -1,7 +1,29 @@
-<div class="form-group">
+<div class="QueryPageContainer">
     <form action="/execute" method="post">
-        <label for="query">Query:</label>
-        <textarea class="form-control" name="query-string" rows="10" id="query"></textarea>
+        <label for="query">Query:</label><br />
+        <textarea class="QueryArea" name="query-string" id="query">
+            <%= @query_string %>
+        </textarea></br>
         <input class="btn btn-success" type="submit" value="Execute">
-    </form>
+    </form><br />
+    <table>
+      <tbody>
+        <tr>
+            <%= for column_name <- @columns do %>
+                <td class="ColumnHeaderCell">
+                    <%= column_name %>
+                </td>
+            <% end %>
+        </tr>
+        <%= for row <- @rows do %>
+            <tr>
+                <%= for cell <- row do %>
+                    <td class="ColumnBodyCell">
+                        <%= cell %>
+                    </td>
+                <% end %>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
 </div>

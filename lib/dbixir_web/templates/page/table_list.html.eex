@@ -1,11 +1,16 @@
-<div class="panel panel-default">
-  <div class="panel-heading">Existing tables</div>
-  <div class="panel-body">
-    <p>List of existing tables.</p>
-  </div>
-  <ol>
-      <%= for table_name <- @tables do %>
-        <li><%= table_name %></li>
-      <% end %>
-  </ol>
+<div class="PageContainer">
+  <%= if @result != [] do %>
+    <table>
+      <tbody>
+        <tr>
+          <td class="ColumnHeaderCell">Database table list</td>
+        </tr>
+        <%= for row <- @result do %>
+          <tr>
+            <td class="ColumnBodyCell"><%= row %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
