@@ -18,11 +18,11 @@ defmodule DbixirWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    post "/connections/new", PageController, :add_new_connection
     get "/tables", PageController, :get_table_list
-    get "/new", PageController, :show_new_connection_page
-    get "/query", PageController, :show_query_area
-    post "/execute", PageController, :query_execute
-    get "/disconnect", PageController, :disconnect
+    get "/query", QueryController, :show_query_area
+    post "/execute", QueryController, :query_execute
+    get "/new", ConnectionController, :show_new_connection_page
+    post "/connections/new", ConnectionController, :add_new_connection
+    get "/disconnect", ConnectionController, :disconnect
   end
 end

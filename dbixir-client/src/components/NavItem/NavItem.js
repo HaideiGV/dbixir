@@ -1,12 +1,17 @@
-import React, { Link } from 'react';
+import React, { Link, Component } from "react";
 import "./NavItem";
+import genUrl from "../../constants/domainUrl";
 
-const navItem = (props) => (
-    <div>
-        <span className="NavItem" >
-            <Link to={props.navItemUrl}>{props.navItemName}</Link>
-        </span>
-    </div>
-);
+class NavItem extends Component {
+    render () {
+        return (
+            <div>
+                <span className="NavItem" >
+                    <a href={ genUrl(this.props.navItemUrl) }>{ this.props.navItemName }</a>
+                </span>
+            </div>
+        )
+    }
+};
 
-export default navItem;
+export default NavItem;

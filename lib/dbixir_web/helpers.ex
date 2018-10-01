@@ -13,10 +13,13 @@ defmodule Dbixir.Helpers do
     end
 
     def get_connection_pid_by_name(cookies) do
-        connection_pid_name = cookies |> Map.get("user_connection")
-        conn_atom = connection_pid_name |> String.to_atom
-        Process.registered()
-        |> Enum.filter(fn pid_name -> pid_name == conn_atom end)
-        |> List.first
+        conn_atom = Map.get(cookies, "user_connection") 
+        if conn_atom do
+            Process.registered()
+            |> Enum.filter(fn pid_name -> pid_name == String.to_atom(conn_atom) end)
+            |> List.first
+        else
+            nil
+        end
     end
 end

@@ -1,3 +1,7 @@
+li {
+    list-style-type: none;
+}
+
 .BodyStyle {
     background-color: rgb(230, 230, 230);
 }

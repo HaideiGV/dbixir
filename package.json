@@ -8,7 +8,9 @@
     "test": "test"
   },
   "dependencies": {
-    "create-react-app": "^1.5.2"
+    "create-react-app": "^1.5.2",
+    "elm-format": "^0.8.0",
+    "elm-upgrade": "^0.19.6"
   },
   "devDependencies": {},
   "scripts": {
