@@ -1,5 +1,5 @@
 <div class="PageContainer">
-    <form action="/connections/new" method="post">
+    <form action="/session/open" method="post">
         <p>
             <input class="form-control" type="text" name="db_name" placeholder="database name">
         </p>

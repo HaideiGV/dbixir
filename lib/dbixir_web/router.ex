@@ -21,8 +21,16 @@ defmodule DbixirWeb.Router do
     get "/tables", PageController, :get_table_list
     get "/query", QueryController, :show_query_area
     post "/execute", QueryController, :query_execute
-    get "/new", ConnectionController, :show_new_connection_page
-    post "/connections/new", ConnectionController, :add_new_connection
-    get "/disconnect", ConnectionController, :disconnect
+    get "/session/new", SessionController, :new_session
+    post "/session/open", SessionController, :open_session
+    get "/session/close", SessionController, :close_session
   end
+
+  scope "/api/v1", DbixirWeb do
+    pipe_through :api
+    
+    resources "/connections", ConnectionController
+
+  end
+
 end

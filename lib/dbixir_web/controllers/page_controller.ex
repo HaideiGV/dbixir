@@ -8,7 +8,7 @@ defmodule DbixirWeb.PageController do
   end
 
   def get_table_list(%Plug.Conn{cookies: cookies} = conn, _params) do
-    pid = get_connection_pid_by_name(cookies)
+    pid = get_session_pid_by_name(cookies)
 
     if pid do
       {:ok, %Postgrex.Result{rows: rows}} = Postgrex.query(

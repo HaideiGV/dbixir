@@ -25,10 +25,10 @@
               <a class="NavItemLink" href="/">Home</a>
             </li>
             <li class="NavItem">
-              <a class="NavItemLink" href="/new">Connect</a>
+              <a class="NavItemLink" href="/session/new">Connect</a>
             </li>
             <li class="NavItem">
-              <a class="NavItemLink" href="/disconnect">Disconnect</a>
+              <a class="NavItemLink" href="/session/close">Disconnect</a>
             </li>
             <li class="NavItem">
               <a class="NavItemLink" href="/tables">Tables</a>
