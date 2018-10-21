@@ -2,15 +2,17 @@ defmodule DbixirWeb.Router do
   use DbixirWeb, :router
 
   pipeline :browser do
+    plug CORSPlug, origin: ["*"]
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
     # plug :protect_from_forgery
     plug :put_secure_browser_headers
-    # plug DbixirWeb.AgentPlugin
   end
 
   pipeline :api do
+    plug CORSPlug, origin: ["*"]
+    plug :fetch_session
     plug :accepts, ["json"]
   end
 
@@ -28,8 +30,10 @@ defmodule DbixirWeb.Router do
 
   scope "/api/v1", DbixirWeb do
     pipe_through :api
-    
+
     resources "/connections", ConnectionController
+
+    get "/tables", PageController, :get_tables_list_json
 
   end
 

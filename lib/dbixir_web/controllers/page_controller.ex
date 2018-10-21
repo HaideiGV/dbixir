@@ -22,4 +22,18 @@ defmodule DbixirWeb.PageController do
     end
   end
 
+  def get_tables_list_json(%Plug.Conn{cookies: cookies} = conn, _params) do
+    pid = get_session_pid_by_name(cookies)
+
+    if pid do
+      {:ok, %Postgrex.Result{rows: rows}} = Postgrex.query(
+        pid, "select * from pg_catalog.pg_tables where schemaname = 'public';", []
+      )
+      result = Enum.map(rows, fn row -> Enum.at(row, 1) end)
+      render(conn, "tables.json", tables: result)
+    else
+      render(conn, "tables.json", tables: [])
+    end
+  end
+
 end
