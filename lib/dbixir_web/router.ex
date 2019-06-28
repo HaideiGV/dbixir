@@ -31,7 +31,10 @@ defmodule DbixirWeb.Router do
   scope "/api/v1", DbixirWeb do
     pipe_through :api
 
-    resources "/connections", ConnectionController
+    # resources "/connections", ConnectionController, only: [:create, :show]
+
+    options "/connections", ConnectionController, :option
+    post "/connections", ConnectionController, :create
 
     get "/tables", PageController, :get_tables_list_json
 

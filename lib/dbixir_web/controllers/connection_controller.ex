@@ -39,4 +39,8 @@ defmodule DbixirWeb.ConnectionController do
       send_resp(conn, :no_content, "")
     end
   end
+
+  def option(conn, _params) do
+    true
+  end
 end
