@@ -1,9 +1,9 @@
 <div class="PageContainer">
-    <p class="AppName">
-      Dbixir.
+    <p id="AppName">
+      <h1>DBIXIR</h1>
     </p>
     <span class="HomePageWelcomeText">
-      Application which allows you to connect to your db, shows your data, make queries.<br />
-      Please enjoy.
+      <h3>Application which allows you to connect to your db, shows your data, make queries.<br />
+      Please enjoy.</h3>
     </span>
 </div>

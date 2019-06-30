@@ -40,38 +40,6 @@
         </nav>
       </header>
 
-      <%# <div class="nav-side-menu">
-          <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-              <div class="menu-list">
-                  <ul id="menu-content" class="menu-content collapse out">
-                      <li><a class="NavItemLink" href="/">Home</li>
-                      <li data-toggle="collapse" data-target="#tables" class="collapsed active">
-                        <a href="#">
-                          <i class="fa fa-lg"></i>Tables
-                          <span class="arrow"></span>
-                        </a>
-                      </li>
-                      <ul class="sub-menu collapse" id="tables">
-                          <li>General</li>
-                          <li>Buttons</li>
-                          <li>Tabs</li>
-                          <li>Typography</li>
-                      </ul>
-                      <li data-toggle="collapse" data-target="#service" class="collapsed">
-                        <a href="#">Connections</a>
-                      </li>  
-                        <ul class="sub-menu collapse" id="service">
-                          <li>Connection 1</li>
-                          <li>Connection 2</li>
-                          <li><a class="NavItemLink" href="/new">New connection</a></li>
-                          <li><a class="NavItemLink" href="/disconnect">Disconnect</a></li>
-                        </ul>
-                      <li><a class="NavItemLink" href="/query">Query builder</li>
-                  </ul>
-          </div>
-      </div> %>
-
-
       <%= if get_flash(@conn, :info) do %>
         <p class="AlertInfo" role="alert"><%= get_flash(@conn, :info) %></p>
       <% end %>

@@ -1,10 +1,9 @@
-<div class="QueryPageContainer">
+<div id="QueryPageContainer">
     <form action="/execute" method="post">
-        <label for="query">Query:</label><br />
-        <textarea class="QueryArea" name="query-string" id="query">
+        <input id="ExecuteButton" type="submit" value="Execute">
+        <textarea id="QueryArea" name="query-string" id="query">
             <%= @query_string %>
         </textarea></br>
-        <input class="btn btn-success" type="submit" value="Execute">
     </form><br />
     <table>
       <tbody>

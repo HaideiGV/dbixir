@@ -11,8 +11,8 @@ defmodule DbixirWeb.QueryController do
     pid = get_session_pid_by_name(cookies)
 
     if pid do
-      query_string = Map.get(body_params, "query-string")
-      if query_string do
+      query_string = Map.get(body_params, "query-string") |> String.trim
+      if query_string != "" do
         query = Postgrex.prepare!(pid, "", query_string)
         {:ok, %Postgrex.Result{rows: rows, columns: columns}} = Postgrex.execute(pid, query, [])
         render conn, "query_area.html", rows: rows, columns: columns, query_string: query_string
